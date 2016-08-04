@@ -2,6 +2,6 @@
 {
     public interface IUserRepository
     {
-       
+        DataSource.User Get(int userId);
     }
 }
