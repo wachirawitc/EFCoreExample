@@ -1,5 +1,7 @@
 ﻿using EF.DataSource;
 using EF.Repository.User.Interface;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace EF.Repository.User
 {
@@ -9,7 +11,9 @@ namespace EF.Repository.User
         {
             using (var db = new ExampleDbContext())
             {
-                return null;
+                return db.User
+                    .Include(x => x.UserType)
+                    .FirstOrDefault(x => x.UserId == userId);
             }
         }
     }

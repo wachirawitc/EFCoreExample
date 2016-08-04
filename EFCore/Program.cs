@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EF.DataSource;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFCore
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            using (var db = new ExampleDbContext())
+            {
+                var xx = db.User
+                    .Include(x => x.UserType)
+                    .FirstOrDefault(x => x.UserId == 1);
+            }
         }
     }
 }
