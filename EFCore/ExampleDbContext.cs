@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFCore
 {
@@ -6,6 +8,7 @@ namespace EFCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
             optionsBuilder.UseSqlServer(@"Server=GENESIS;Database=ExampleDb;Trusted_Connection=True;");
         }
 
@@ -18,6 +21,12 @@ namespace EFCore
                 entity.Property(e => e.Password).HasColumnType("varchar(200)");
 
                 entity.Property(e => e.UserName).HasColumnType("varchar(200)");
+
+                entity.HasOne(d => d.UserType)
+                    .WithMany(p => p.User)
+                    .HasForeignKey(d => d.UserTypeId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_User_UserType");
             });
 
             modelBuilder.Entity<UserType>(entity =>
