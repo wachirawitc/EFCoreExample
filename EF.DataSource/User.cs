@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EFCore
+namespace EF.DataSource
 {
     public partial class User
     {

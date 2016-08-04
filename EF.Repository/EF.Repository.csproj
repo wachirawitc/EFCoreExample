@@ -49,6 +49,10 @@
       <Project>{c2ab31f7-5823-4949-8988-28fa0749b4cf}</Project>
       <Name>EF.DataSource</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EFCore\EFCore.csproj">
+      <Project>{230320FF-3CF5-4931-921C-5A9AF855EA61}</Project>
+      <Name>EFCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

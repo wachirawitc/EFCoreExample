@@ -152,7 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExampleContext.cs" />
+    <Compile Include="ExampleDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

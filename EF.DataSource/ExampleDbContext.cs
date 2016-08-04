@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace EFCore
+namespace EF.DataSource
 {
     public partial class ExampleDbContext : DbContext
     {
